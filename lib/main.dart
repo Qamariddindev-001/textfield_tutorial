@@ -13,6 +13,7 @@ class MyText extends StatefulWidget {
 
 class _MyTextState extends State<MyText> {
   TextEditingController _controller = TextEditingController();
+  String txt = '';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,10 +24,12 @@ class _MyTextState extends State<MyText> {
               TextField(
                 controller: _controller,
               ),
-              Text('Number'),
+              Text(txt),
               TextButton(
                   onPressed: () {
-                    print(_controller.text);
+                    setState(() {
+                      txt = _controller.text;
+                    });
                   },
                   child: Text('Submit'))
             ],
